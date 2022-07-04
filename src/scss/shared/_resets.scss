@@ -1,0 +1,38 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    color: $primaryText;
+}
+
+html {
+    font-size: 14px;
+    line-height: 1.6;
+    scroll-behavior: smooth;
+    scrollbar-width: thin;
+}
+
+body {
+    background: $primaryBg;
+}
+
+hr {
+    border-color: rgba($primaryText, .2);
+    width: 300px;
+}
+
+small {
+    font-size: 12px;
+    opacity: .8;
+}
+
+ul {
+    margin-left: 10px;
+}
+
+button {
+    &:focus {
+        outline: none;
+    }
+}

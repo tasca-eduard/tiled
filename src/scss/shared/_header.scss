@@ -1,0 +1,131 @@
+.header {
+    background: $ternaryBg;
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    margin-bottom: 50px;
+
+    .header-container {
+        padding-block: 14px;
+    }
+
+    .nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .nav-list {
+        display: flex;
+        list-style-type: none;
+        margin-left: 0;
+    }
+
+    .nav-item {
+        margin-left: 20px;
+        display: flex;
+    }
+
+    .nav-link {
+        background: transparent;
+        padding: 10px 16px;
+        border-radius: 5px;
+        display: block;
+        font-size: 12px;
+        flex-grow: 1;
+        border: none;
+        transition: .2s cubic-bezier(0.165, 0.84, 0.44, 1);
+        text-align: center;
+        position: relative;
+
+        &::first-letter {
+            color: rgba($primaryText, .8);
+        }
+    
+        &:hover,
+        &:focus {
+            background: lighten($secondaryBg, 5%);
+        }
+    
+        &.active {
+            &::before {
+                background: $accent;
+            }
+    
+            &::first-letter,
+            i {
+                color: $accent;
+            }
+        }
+    
+        &::after {
+            content: none;
+        }
+
+        &::before {
+            content: "";
+            width: 100%;
+            height: 1px;
+            background: transparent;
+            position: absolute;
+            left: 0;
+            top: 0;
+            transition: .2s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        i {
+            padding-right: 6px;
+            color: rgba($primaryText, .8);
+        }
+    }
+
+    @media screen and (max-width: 767px) {
+        margin-bottom: 20px;
+
+        .nav-list {
+            &:not(.top) {
+                background: $ternaryBg;
+                display: flex;
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                top: auto;
+                z-index: 2;
+    
+                .nav-item {
+                    flex-grow: 1;
+                    margin: 0;
+                }
+        
+                .nav-link {
+                    padding: 10px;
+                }
+            }
+
+            &.top {
+                .nav-link {
+                    background: $secondaryBg;
+                }
+            }
+        }
+    }
+
+    @media screen and (max-width: 576px) {
+        .nav-list {
+            &:not(.top) {
+                .nav-link {
+                    padding: 20px 10px;
+                }
+            }
+
+            &.top {
+                .nav-item {
+                    margin-left: 16px;
+                }
+            }
+        }
+    }
+}

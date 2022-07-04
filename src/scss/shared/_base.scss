@@ -1,0 +1,78 @@
+.logo {
+    font-size: 24px;
+    font-weight: 700;
+    color: $white;
+    display: flex;
+    position: relative;
+
+    &::after {
+        bottom: 0;
+    }
+
+    .immersed {
+        position: absolute;
+        top: -4px;
+        font-size: 12px;
+        font-weight: 400;
+        letter-spacing: 1px;
+
+        &::first-letter {
+            color: $accent;
+            font-weight: 700;
+        }
+    }
+}
+
+h1[id],
+h2[id] {
+    scroll-margin-top: 140px; 
+}
+
+:target { 
+    position: relative;
+
+    &::after {
+        content: '#';
+        position: absolute;
+        top: 50%;
+        left: -28px;
+        transform: translateY(-50%);
+        color: rgba($primaryText, .2);
+        font-size: 28px;
+        animation: hash 1s ease-in-out;
+    }
+
+    &#contact {
+        &::after {
+            font-size: 16px;
+            left: -16px;
+        }
+    }
+
+    @media screen and (max-width: 767px) {
+        scroll-margin-top: 110px;
+    }
+
+    @media screen and (max-width: 576px) {
+        scroll-margin-top: 90px;
+
+        &::after {
+            font-size: 16px;
+            left: -16px;
+        }
+    }
+}
+
+@keyframes hash {
+    0% {
+        color: rgba($primaryText, 0);
+    }
+
+    60% {
+        color: rgba($accent, 1);
+    }
+
+    100% {
+        color: rgba($primaryText, .2);
+    }
+}
